@@ -1,0 +1,37 @@
+PSeudoCodigo.
+
+
+listElements = (a,e,i,o,u); // Elementos del juego
+
+queue = aleatoryList (Random(listElements)); // creamos una cola de elements random.
+
+queue = listUser = (input());  // Creamos cola donde user almacena 
+
+contador = 0
+
+
+ConsoleWriteline (First element of the list); 
+
+listUser = input(Console.ReadLine(Introduce el numero ))
+
+while listUser == aleatoryList();
+	
+	agregar new element a queue aleatoryList.
+	mostrar new element.
+	listUser = Pedir input user del nuevo elemento
+
+		if listUser == aleatoryList {
+	
+			contador +=;
+	
+			queue aleatoryList (Random (listElement));
+	
+			}
+		else {
+			
+			Console.WriteLine("El juego terminó, Tu puntaje es {0}", contador);
+			break.
+			}
+
+
+		
