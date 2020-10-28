@@ -3,21 +3,21 @@ PSeudoCodigo.
 
 listElements = (a,e,i,o,u); // Elementos del juego
 
-queue = aleatoryList (Random(listElements)); // creamos una cola de elements random.
+aleatoryCola (Random(listElements)); // creamos una cola de elements random.
 
-queue = listUser = (input());  // Creamos cola donde user almacena 
+UserCola = (input());  // Creamos cola donde user almacena 
 
-contador = 0
+contador = 0 // Para score de usuario
 
 
 ConsoleWriteline (First element of the list); 
 
 listUser = input(Console.ReadLine(Introduce el numero ))
 
-while listUser == aleatoryList();
+Do listUser == aleatoryList();
 	
 	agregar new element a queue aleatoryList.
-	mostrar new element.
+	mostrar new element random.
 	listUser = Pedir input user del nuevo elemento
 
 		if listUser == aleatoryList {
@@ -32,6 +32,6 @@ while listUser == aleatoryList();
 			Console.WriteLine("El juego terminó, Tu puntaje es {0}", contador);
 			break.
 			}
-
+while
 
 		
