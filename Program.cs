@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace simonGame
 {
@@ -10,56 +12,62 @@ namespace simonGame
             Console.WriteLine("Bienvenido a SimonGame");
             Console.WriteLine("Nuestros elementos serán vocales.");
 
-            // Definimos variables. --------------------------------------------------
+            //  ----------Definimos variables. --------------------------------------------------
             int index;
             int score = 0;
 
             List<string> listElements = new List<string>() { "a", "e", "i", "o", "u"}; // Lista Maquina
-            List<string> listUser = new List<string>(); // Lista para los input del usuario.
+            List<string> listUser = new List<string>(); // Lista para los input del usuario. SOlo en caso de no lograrlo con COlas
 
             Random aleatory = new Random();
 
-            Queue <string> colaMachine = new Queue<string>();
-            Queue<string> colaUser = new Queue<string>();
+            Queue colaMachine = new Queue();
+            Queue colaUser = new Queue();
 
 
 
 
 
-            //Desarrollo del juego ---------------------------------------------------------
+            //---------------------Desarrollo del juego ---------------------------------------------------------
 
             do {
-                score += 1;
+                score += 10; // Suma por cada ciclo 
                 
                 index = aleatory.Next(0, listElements.Count); // El cero toma el minimo de elementos, usarlos para dificultad 
-                //Console.WriteLine(index);
+                Console.WriteLine("Lo que random elije: {0}", index); // Solo para controlar si funcionaba el random 
                 Console.WriteLine("Ronda {1}: {0}", listElements[index], score);
-                colaMachine.Enqueue(listElements[index]);
-                PrintQueue(colaMachine);
 
-                Console.WriteLine("Repite la secuencia... ");
+
+                colaMachine.Enqueue(listElements[index]); // Ingresa a la cola de la Maquina 
+
+                Console.WriteLine("Elementos en la cola : {0}", colaMachine.Count);
+
+                Console.Write("Ahora repite la secuencia... ");
                 string entradaUser = Console.ReadLine();
-                colaUser.Enqueue(entradaUser);
-            } while (colaMachine == colaUser);
+                colaUser.Enqueue(entradaUser); // Ingresa a la cola de usuario
 
-            Console.WriteLine("Eljuego ha terminado, tu puntaje es {0}", score);
+
+                
+                
+
+            } while (colaMachine == colaUser);
             
-               
-            
-            
+            Console.WriteLine("Eljuego ha terminado, tu puntaje es {0}", score); // Final del juego al fallar.
+            PrintQueue(colaMachine); // COntrolamos que hubiera agregado elementos a la cola correctamente 
+            PrintQueue(colaUser);
+
+
+
 
         }
 
-
-        public static void PrintQueue(Queue<String> cola)
+        // ---------------- Esta funcion muestra en pantalla los elementos de la cola. -------
+        public static void PrintQueue(Queue cola)
         {
             foreach (string element in cola)
-                Console.Write(" - {0}", element);
+                Console.Write("- Elemento random : {0}", element);
             Console.WriteLine();
         }
-
-
-
 
     }
 }
